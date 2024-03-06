@@ -62,7 +62,7 @@ class NetCat:
         self.socket.listen(5)
 
         while True:
-            client_socket, = self.socket.accept()
+            client_socket,_ = self.socket.accept()
             client_thread = threading.Thread(target=self.handle, args=(client_socket,))
             client_thread.start()
 
@@ -135,5 +135,6 @@ if __name__ == '__main__':
 
     nc = NetCat(args, buffer.encode())
     nc.run()
+
 
 
